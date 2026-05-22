@@ -3,134 +3,94 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JRAU - Journal of Regional Anesthesia & Ultrasound</title>
-
+<title>JRAU | Journal of Regional Anesthesia & Ultrasound</title>
 <style>
-body{
-    margin:0;
-    font-family:Arial, sans-serif;
-    background:#f4f6f9;
-    color:#222;
-}
-
-header{
-    background:#0b1f3a;
-    color:white;
-    padding:40px 20px;
-    text-align:center;
-}
-
-header h1{
-    margin:0;
-    font-size:42px;
-}
-
-header p{
-    margin-top:10px;
-    font-size:18px;
-    opacity:0.9;
-}
-
-nav{
-    background:#13294b;
-    padding:15px;
-    text-align:center;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    margin:0 15px;
-    font-weight:bold;
-}
-
-.container{
-    max-width:1000px;
-    margin:auto;
-    padding:40px 20px;
-}
-
-.card{
-    background:white;
-    padding:30px;
-    border-radius:12px;
-    box-shadow:0 2px 10px rgba(0,0,0,0.08);
-    margin-bottom:30px;
-}
-
-footer{
-    background:#0b1f3a;
-    color:white;
-    text-align:center;
-    padding:20px;
-    margin-top:40px;
-}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f5f7fb;color:#1d2530;line-height:1.6}
+header{background:linear-gradient(135deg,#071b33,#123d63);color:white;padding:70px 20px;text-align:center}
+header h1{font-size:56px;margin:0;letter-spacing:2px}
+header p{font-size:22px;margin:10px 0 0}
+nav{background:#0b2745;padding:14px;text-align:center;position:sticky;top:0}
+nav a{color:white;text-decoration:none;margin:0 14px;font-weight:600}
+.container{max-width:1100px;margin:auto;padding:45px 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.card{background:white;border-radius:16px;padding:28px;box-shadow:0 6px 20px rgba(0,0,0,.08)}
+.card h2{color:#0b2745;margin-top:0}
+.hero-btn{display:inline-block;margin-top:25px;background:#ffffff;color:#0b2745;padding:12px 22px;border-radius:8px;text-decoration:none;font-weight:bold}
+.badge{display:inline-block;background:#e8f1fb;color:#0b2745;padding:6px 12px;border-radius:20px;font-size:14px;margin:4px}
+footer{background:#071b33;color:white;text-align:center;padding:25px;margin-top:40px}
 </style>
-
 </head>
-
 <body>
 
 <header>
 <h1>JRAU</h1>
 <p>Journal of Regional Anesthesia & Ultrasound</p>
+<p>International Open-Access Journal for Regional Anesthesia, Ultrasound-Guided Blocks and Perioperative Pain Medicine</p>
+<a class="hero-btn" href="mailto:editor@jrau.org">Submit Manuscript</a>
 </header>
 
 <nav>
-<a href="#">Home</a>
-<a href="#">About</a>
-<a href="#">Editorial Board</a>
-<a href="#">Submit Manuscript</a>
-<a href="#">Contact</a>
+<a href="#about">About</a>
+<a href="#scope">Aims & Scope</a>
+<a href="#articles">Article Types</a>
+<a href="#ethics">Ethics</a>
+<a href="#submit">Submit</a>
+<a href="#contact">Contact</a>
 </nav>
 
 <div class="container">
 
-<div class="card">
+<section id="about" class="card">
 <h2>About the Journal</h2>
+<p><strong>Journal of Regional Anesthesia & Ultrasound (JRAU)</strong> is an international, peer-reviewed, open-access journal dedicated to regional anesthesia, ultrasound-guided procedures, perioperative pain medicine, and innovation in anesthetic practice.</p>
+<p>JRAU aims to provide a focused platform for clinicians, researchers, educators, and trainees working in ultrasound-guided regional anesthesia and related perioperative fields.</p>
+</section>
 
-<p>
-Journal of Regional Anesthesia & Ultrasound (JRAU) is an international open-access journal dedicated to regional anesthesia, ultrasound-guided procedures, perioperative pain medicine, and innovative anesthetic techniques.
-</p>
-
-<p>
-The journal publishes original research articles, reviews, technical reports, cadaveric studies, educational innovations, and AI-assisted applications in regional anesthesia.
-</p>
-</div>
-
-<div class="card">
+<section id="scope">
 <h2>Aims & Scope</h2>
-
-<ul>
-<li>Regional anesthesia</li>
-<li>Ultrasound-guided nerve blocks</li>
-<li>Fascial plane blocks</li>
-<li>Perioperative ultrasound</li>
-<li>Pain medicine</li>
-<li>AI-assisted regional anesthesia</li>
-<li>Cadaveric and anatomical studies</li>
-<li>Educational innovations</li>
-</ul>
-
+<div class="grid">
+<div class="card"><h3>Regional Anesthesia</h3><p>Peripheral nerve blocks, neuraxial techniques, fascial plane blocks, and perioperative analgesia.</p></div>
+<div class="card"><h3>Ultrasound-Guided Procedures</h3><p>Sonoanatomy, procedural safety, needle visualization, and image-guided interventions.</p></div>
+<div class="card"><h3>Innovation & Education</h3><p>AI-assisted blocks, simulation, teaching methods, cadaveric studies, and clinical workflows.</p></div>
 </div>
+</section>
 
-<div class="card">
+<section id="articles" class="card">
+<h2>Article Types</h2>
+<span class="badge">Original Research</span>
+<span class="badge">Review Articles</span>
+<span class="badge">Technical Notes</span>
+<span class="badge">Case Reports</span>
+<span class="badge">Cadaveric Studies</span>
+<span class="badge">Sonoanatomy Images</span>
+<span class="badge">Educational Articles</span>
+<span class="badge">Letters to the Editor</span>
+</section>
+
+<section id="ethics" class="card">
+<h2>Publication Ethics</h2>
+<p>JRAU follows international standards for publication ethics, peer review, authorship transparency, conflict of interest disclosure, data integrity, and responsible use of artificial intelligence in scientific writing.</p>
+<p>All submitted manuscripts are expected to comply with ethical principles including appropriate ethics committee approval, informed consent when applicable, plagiarism avoidance, and transparent reporting.</p>
+</section>
+
+<section id="submit" class="card">
 <h2>Submit Manuscript</h2>
+<p>Manuscripts may currently be submitted by email while the online submission system is being developed.</p>
+<p><strong>Email:</strong> editor@jrau.org</p>
+<p>Please include the manuscript file, title page, cover letter, ethics statement, conflict of interest statement, and author contribution statement.</p>
+</section>
 
-<p>
-For manuscript submissions and editorial inquiries:
-</p>
-
-<p>
-<b>Email:</b> editor@jrau-journal.org
-</p>
-
-</div>
+<section id="contact" class="card">
+<h2>Contact</h2>
+<p><strong>Journal of Regional Anesthesia & Ultrasound</strong></p>
+<p><strong>Website:</strong> https://jrau.org</p>
+<p><strong>Editorial Office:</strong> editor@jrau.org</p>
+</section>
 
 </div>
 
 <footer>
-© 2026 Journal of Regional Anesthesia & Ultrasound (JRAU)
+<p>© 2026 Journal of Regional Anesthesia & Ultrasound (JRAU). All rights reserved.</p>
 </footer>
 
 </body>
