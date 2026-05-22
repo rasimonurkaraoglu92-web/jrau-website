@@ -4,439 +4,203 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>JRAU | Journal of Regional Anesthesia & Ultrasound</title>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --navy:#071b33;
-  --navy2:#0b2745;
-  --navy3:#123d63;
-  --accent:#1a6fc4;
-  --light:#e8f1fb;
-  --text:#1d2530;
-  --muted:#5a6a7e;
-  --border:#d0dcea;
-  --bg:#f4f7fb;
-}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f5f7fb;color:#1d2530;line-height:1.6}
+header{background:linear-gradient(135deg,#071b33,#123d63);color:white;padding:70px 20px;text-align:center}
+header h1{font-size:56px;margin:0;letter-spacing:2px}
+header p{font-size:22px;margin:10px 0 0}
+nav{background:#0b2745;padding:14px;text-align:center;position:sticky;top:0;z-index:100}
+nav a{color:white;text-decoration:none;margin:0 14px;font-weight:600}
+.container{max-width:1100px;margin:auto;padding:45px 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.card{background:white;border-radius:16px;padding:28px;box-shadow:0 6px 20px rgba(0,0,0,.08);margin-bottom:28px}
+.card h2{color:#0b2745;margin-top:0}
+.card h3{color:#0b2745;margin-top:16px;margin-bottom:8px}
+.card hr{border:none;border-top:1px solid #e0e8f0;margin:18px 0}
+.card ul{padding-left:20px}
+.card ul li{margin-bottom:4px}
+.hero-btn{display:inline-block;margin-top:25px;background:#ffffff;color:#0b2745;padding:12px 22px;border-radius:8px;text-decoration:none;font-weight:bold}
+.badge{display:inline-block;background:#e8f1fb;color:#0b2745;padding:6px 12px;border-radius:20px;font-size:14px;margin:4px}
+.scope-card{background:white;border-radius:16px;padding:28px;box-shadow:0 6px 20px rgba(0,0,0,.08)}
+.scope-card h3{color:#0b2745;margin-top:0}
 
-/* HEADER */
-header{
-  background:linear-gradient(160deg,var(--navy) 0%,var(--navy3) 100%);
-  color:white;
-  padding:80px 20px 70px;
-  text-align:center;
-  position:relative;
-  overflow:hidden;
-}
-header::before{
-  content:'';
-  position:absolute;inset:0;
-  background:radial-gradient(ellipse 60% 70% at 50% 120%, rgba(26,111,196,0.25) 0%, transparent 70%);
-  pointer-events:none;
-}
-.header-inner{position:relative;z-index:1}
-.header-kicker{
-  display:inline-block;
-  background:rgba(255,255,255,0.10);
-  border:1px solid rgba(255,255,255,0.18);
-  color:rgba(255,255,255,0.82);
-  font-size:11px;
-  letter-spacing:2.5px;
-  text-transform:uppercase;
-  padding:5px 16px;
-  border-radius:30px;
-  margin-bottom:22px;
-}
-header h1{
-  font-family:'EB Garamond',serif;
-  font-size:72px;
-  font-weight:400;
-  letter-spacing:6px;
-  line-height:1;
-  margin-bottom:10px;
-  color:white;
-}
-header .subtitle{
-  font-size:18px;
-  font-weight:300;
-  color:rgba(255,255,255,0.80);
-  margin-bottom:8px;
-  letter-spacing:0.5px;
-}
-header .tagline{
-  font-size:14px;
-  color:rgba(255,255,255,0.55);
-  max-width:560px;
-  margin:0 auto 32px;
-  line-height:1.7;
-}
-.hero-btn{
-  display:inline-block;
-  background:white;
-  color:var(--navy2);
-  padding:13px 28px;
-  border-radius:8px;
-  text-decoration:none;
-  font-size:14px;
-  font-weight:600;
-  letter-spacing:0.3px;
-  transition:all .2s;
-}
-.hero-btn:hover{background:#e8f1fb;transform:translateY(-1px)}
+/* Ahead of Print */
+.aop-card{background:white;border-radius:16px;padding:28px;box-shadow:0 6px 20px rgba(0,0,0,.08);margin-bottom:28px;border-left:5px solid #1a6fc4}
+.aop-card h2{color:#0b2745;margin-top:0}
+.aop-label{display:inline-block;background:#1a6fc4;color:white;font-size:12px;font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:16px;letter-spacing:1px}
+.aop-title{font-size:17px;font-weight:700;color:#0b2745;margin-bottom:6px}
+.aop-authors{font-size:14px;color:#444;margin-bottom:4px}
+.aop-journal{font-size:13px;color:#777;margin-bottom:16px}
+.aop-abstract{font-size:14px;color:#444;line-height:1.7;margin-bottom:16px;padding:14px;background:#f4f7fb;border-radius:8px}
+.aop-btn{display:inline-block;background:#1a6fc4;color:white;padding:9px 20px;border-radius:8px;text-decoration:none;font-size:14px;font-weight:600}
+.aop-btn:hover{background:#0b2745}
 
-/* NAV */
-nav{
-  background:var(--navy);
-  padding:0 20px;
-  text-align:center;
-  position:sticky;
-  top:0;
-  z-index:100;
-  border-bottom:1px solid rgba(255,255,255,0.07);
-}
-nav a{
-  display:inline-block;
-  color:rgba(255,255,255,0.60);
-  text-decoration:none;
-  padding:14px 16px;
-  font-size:13px;
-  font-weight:500;
-  letter-spacing:0.2px;
-  border-bottom:2px solid transparent;
-  transition:all .2s;
-}
-nav a:hover{color:white;border-bottom-color:var(--accent)}
+/* Call for Papers */
+.cfp-card{background:linear-gradient(135deg,#071b33,#123d63);border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,.15);margin-bottom:28px;color:white}
+.cfp-card h2{color:white;margin-top:0}
+.cfp-label{display:inline-block;background:rgba(255,255,255,0.15);color:white;font-size:12px;font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:16px;letter-spacing:1px;border:1px solid rgba(255,255,255,0.3)}
+.cfp-card p{color:rgba(255,255,255,0.85);margin-bottom:10px}
+.cfp-card ul{color:rgba(255,255,255,0.85);padding-left:20px}
+.cfp-card ul li{margin-bottom:6px}
+.cfp-deadline{background:rgba(255,255,255,0.12);border-radius:10px;padding:16px 20px;margin:20px 0;border:1px solid rgba(255,255,255,0.2)}
+.cfp-deadline strong{color:white;font-size:15px}
+.cfp-deadline span{color:rgba(255,255,255,0.7);font-size:13px;display:block;margin-top:2px}
+.cfp-btn{display:inline-block;background:white;color:#0b2745;padding:10px 22px;border-radius:8px;text-decoration:none;font-size:14px;font-weight:700;margin-top:8px}
+.cfp-btn:hover{background:#e8f1fb}
 
-/* LAYOUT */
-.container{max-width:1100px;margin:auto;padding:50px 20px}
-.section-gap{margin-bottom:40px}
-
-/* ABOUT */
-.about-card{
-  background:white;
-  border-radius:16px;
-  padding:36px 40px;
-  box-shadow:0 2px 12px rgba(7,27,51,.06);
-  border:1px solid var(--border);
-  display:flex;
-  gap:40px;
-  align-items:flex-start;
-}
-.about-accent{
-  flex-shrink:0;
-  width:4px;
-  height:70px;
-  background:linear-gradient(180deg,var(--accent),transparent);
-  border-radius:4px;
-  margin-top:4px;
-}
-.about-card h2{
-  font-family:'EB Garamond',serif;
-  font-size:28px;
-  font-weight:400;
-  color:var(--navy2);
-  margin-bottom:12px;
-}
-.about-card p{font-size:15px;color:var(--muted);margin-bottom:10px;line-height:1.75}
-
-/* SECTION HEADERS */
-.section-heading{
-  font-family:'EB Garamond',serif;
-  font-size:30px;
-  font-weight:400;
-  color:var(--navy2);
-  margin-bottom:24px;
-}
-
-/* SCOPE GRID */
-.scope-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
-.scope-card{
-  background:white;
-  border-radius:14px;
-  padding:28px;
-  border:1px solid var(--border);
-  box-shadow:0 2px 10px rgba(7,27,51,.05);
-  transition:box-shadow .2s,transform .2s;
-}
-.scope-card:hover{box-shadow:0 6px 24px rgba(7,27,51,.10);transform:translateY(-2px)}
-.scope-icon{
-  width:44px;height:44px;
-  border-radius:10px;
-  background:var(--light);
-  display:flex;align-items:center;justify-content:center;
-  margin-bottom:16px;
-  font-size:22px;
-}
-.scope-card h3{font-size:16px;font-weight:600;color:var(--navy2);margin-bottom:8px}
-.scope-card p{font-size:14px;color:var(--muted);line-height:1.65}
-
-/* TWO-COLUMN SECTION */
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-@media(max-width:680px){.two-col{grid-template-columns:1fr}.about-card{flex-direction:column;gap:16px}}
-
-/* ARTICLE TYPES */
-.article-card{
-  background:white;
-  border-radius:14px;
-  padding:28px 32px;
-  border:1px solid var(--border);
-  box-shadow:0 2px 10px rgba(7,27,51,.05);
-}
-.article-card h2{
-  font-family:'EB Garamond',serif;
-  font-size:28px;
-  font-weight:400;
-  color:var(--navy2);
-  margin-bottom:20px;
-}
-.badges{display:flex;flex-wrap:wrap;gap:8px}
-.badge{
-  display:inline-block;
-  background:var(--light);
-  color:var(--navy2);
-  padding:7px 16px;
-  border-radius:30px;
-  font-size:13px;
-  font-weight:500;
-  border:1px solid #c2d8f0;
-}
-
-/* ETHICS */
-.ethics-card{
-  background:var(--navy2);
-  border-radius:14px;
-  padding:32px 36px;
-  color:white;
-}
-.ethics-card h2{
-  font-family:'EB Garamond',serif;
-  font-size:28px;
-  font-weight:400;
-  color:white;
-  margin-bottom:14px;
-}
-.ethics-card p{font-size:14px;color:rgba(255,255,255,0.70);line-height:1.75;margin-bottom:10px}
-
-/* EDITORIAL BOARD */
-.editorial-card{
-  background:white;
-  border-radius:14px;
-  padding:28px 32px;
-  border:1px solid var(--border);
-  box-shadow:0 2px 10px rgba(7,27,51,.05);
-}
-.editorial-card h2{
-  font-family:'EB Garamond',serif;
-  font-size:28px;
-  font-weight:400;
-  color:var(--navy2);
-  margin-bottom:20px;
-}
-.sub-label{
-  font-size:10px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  color:var(--accent);
-  font-weight:600;
-  margin-bottom:12px;
-}
-.editor-block{
-  display:flex;
-  align-items:center;
-  gap:16px;
-  padding:16px 0;
-}
-.avatar{
-  width:48px;height:48px;border-radius:50%;
-  background:var(--light);
-  border:1px solid #c2d8f0;
-  display:flex;align-items:center;justify-content:center;
-  font-size:14px;font-weight:600;color:var(--accent);
-  flex-shrink:0;
-}
-.editor-name{font-size:14px;font-weight:600;color:var(--navy2)}
-.editor-role{font-size:12px;color:var(--accent);margin:1px 0}
-.editor-inst{font-size:12px;color:var(--muted)}
-.divider{border:none;border-top:1px solid var(--border);margin:4px 0}
-.assoc-badges{display:flex;flex-wrap:wrap;gap:7px;margin-top:4px}
-.assoc-badge{
-  background:#f0f7ff;
-  color:var(--navy2);
-  font-size:12px;
-  padding:5px 13px;
-  border-radius:20px;
-  border:1px solid #c2d8f0;
-}
-
-/* SUBMIT + CONTACT */
-.submit-card{
-  background:var(--light);
-  border-radius:14px;
-  padding:28px 32px;
-  border:1px solid #c2d8f0;
-}
-.submit-card h2{
-  font-family:'EB Garamond',serif;
-  font-size:28px;
-  font-weight:400;
-  color:var(--navy2);
-  margin-bottom:12px;
-}
-.submit-card p{font-size:14px;color:var(--muted);margin-bottom:8px;line-height:1.65}
-.submit-card a{color:var(--accent);text-decoration:none;font-weight:500}
-.submit-card a:hover{text-decoration:underline}
-.contact-card{
-  background:white;
-  border-radius:14px;
-  padding:28px 32px;
-  border:1px solid var(--border);
-  box-shadow:0 2px 10px rgba(7,27,51,.05);
-}
-.contact-card h2{
-  font-family:'EB Garamond',serif;
-  font-size:28px;
-  font-weight:400;
-  color:var(--navy2);
-  margin-bottom:12px;
-}
-.contact-card p{font-size:14px;color:var(--muted);margin-bottom:8px}
-.contact-card a{color:var(--accent);text-decoration:none;font-weight:500}
-.contact-card a:hover{text-decoration:underline}
-
-/* FOOTER */
-footer{
-  background:var(--navy);
-  color:rgba(255,255,255,0.50);
-  text-align:center;
-  padding:28px 20px;
-  font-size:13px;
-  letter-spacing:0.2px;
-}
+footer{background:#071b33;color:white;text-align:center;padding:25px;margin-top:40px}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="header-inner">
-    <div class="header-kicker">Open Access · Peer Reviewed · International</div>
-    <h1>JRAU</h1>
-    <p class="subtitle">Journal of Regional Anesthesia & Ultrasound</p>
-    <p class="tagline">International open-access journal for regional anesthesia, ultrasound-guided blocks and perioperative pain medicine</p>
-    <a class="hero-btn" href="mailto:editor@jrau.org">Submit Manuscript</a>
-  </div>
+<h1>JRAU</h1>
+<p>Journal of Regional Anesthesia & Ultrasound</p>
+<p>International Open-Access Journal for Regional Anesthesia, Ultrasound-Guided Blocks and Perioperative Pain Medicine</p>
+<a class="hero-btn" href="mailto:editor@jrau.org">Submit Manuscript</a>
 </header>
 
 <nav>
-  <a href="#about">About</a>
-  <a href="#scope">Aims & Scope</a>
-  <a href="#articles">Article Types</a>
-  <a href="#editorial">Editorial Board</a>
-  <a href="#ethics">Ethics</a>
-  <a href="#submit">Submit</a>
-  <a href="#contact">Contact</a>
+<a href="#about">About</a>
+<a href="#aop">Ahead of Print</a>
+<a href="#cfp">Call for Papers</a>
+<a href="#scope">Aims & Scope</a>
+<a href="#articles">Article Types</a>
+<a href="#editorial">Editorial Board</a>
+<a href="#ethics">Ethics</a>
+<a href="#submit">Submit</a>
+<a href="#contact">Contact</a>
 </nav>
 
 <div class="container">
 
-  <!-- ABOUT -->
-  <section id="about" class="about-card section-gap">
-    <div class="about-accent"></div>
-    <div>
-      <h2>About the Journal</h2>
-      <p><strong>Journal of Regional Anesthesia & Ultrasound (JRAU)</strong> is an international, peer-reviewed, open-access journal dedicated to regional anesthesia, ultrasound-guided procedures, perioperative pain medicine, and innovation in anesthetic practice.</p>
-      <p>JRAU aims to provide a focused platform for clinicians, researchers, educators, and trainees working in ultrasound-guided regional anesthesia and related perioperative fields.</p>
-    </div>
-  </section>
+<section id="about" class="card">
+<h2>About the Journal</h2>
+<p><strong>Journal of Regional Anesthesia & Ultrasound (JRAU)</strong> is an international, peer-reviewed, open-access journal dedicated to regional anesthesia, ultrasound-guided procedures, perioperative pain medicine, and innovation in anesthetic practice.</p>
+<p>JRAU aims to provide a focused platform for clinicians, researchers, educators, and trainees working in ultrasound-guided regional anesthesia and related perioperative fields.</p>
+</section>
 
-  <!-- AIMS & SCOPE -->
-  <section id="scope" class="section-gap">
-    <h2 class="section-heading">Aims & Scope</h2>
-    <div class="scope-grid">
-      <div class="scope-card">
-        <div class="scope-icon">🫀</div>
-        <h3>Regional Anesthesia</h3>
-        <p>Peripheral nerve blocks, neuraxial techniques, fascial plane blocks, and perioperative analgesia.</p>
-      </div>
-      <div class="scope-card">
-        <div class="scope-icon">🔬</div>
-        <h3>Ultrasound-Guided Procedures</h3>
-        <p>Sonoanatomy, procedural safety, needle visualization, and image-guided interventions.</p>
-      </div>
-      <div class="scope-card">
-        <div class="scope-icon">🧠</div>
-        <h3>Innovation & Education</h3>
-        <p>AI-assisted blocks, simulation, teaching methods, cadaveric studies, and clinical workflows.</p>
-      </div>
-    </div>
-  </section>
+<!-- AHEAD OF PRINT -->
+<section id="aop" class="aop-card">
+<h2>Ahead of Print</h2>
+<p style="color:#555;font-size:14px;margin-bottom:20px">Articles published online before inclusion in a journal issue.</p>
 
-  <!-- ARTICLE TYPES + ETHICS -->
-  <div class="two-col section-gap">
-    <div id="articles" class="article-card">
-      <h2>Article Types</h2>
-      <div class="badges">
-        <span class="badge">Original Research</span>
-        <span class="badge">Review Articles</span>
-        <span class="badge">Technical Notes</span>
-        <span class="badge">Case Reports</span>
-        <span class="badge">Cadaveric Studies</span>
-        <span class="badge">Sonoanatomy Images</span>
-        <span class="badge">Educational Articles</span>
-        <span class="badge">Letters to the Editor</span>
-      </div>
-    </div>
-    <div id="ethics" class="ethics-card">
-      <h2>Publication Ethics</h2>
-      <p>JRAU follows international standards for publication ethics, peer review, authorship transparency, conflict of interest disclosure, data integrity, and responsible use of artificial intelligence in scientific writing.</p>
-      <p>All submitted manuscripts are expected to comply with ethical principles including appropriate ethics committee approval, informed consent when applicable, plagiarism avoidance, and transparent reporting.</p>
-    </div>
+<div>
+  <div class="aop-label">AHEAD OF PRINT</div>
+  <div class="aop-title">A Radiative Forcing-Based Life Cycle Assessment Model for Inhaled Anaesthetic Agents: Integrating Climate and Ecotoxicity Metrics</div>
+  <div class="aop-authors">Rasim Onur Karaoğlu, MD</div>
+  <div class="aop-journal">Department of Anesthesiology and Reanimation, SBÜ Bağcılar Training and Research Hospital, İstanbul, Turkey</div>
+  <div class="aop-abstract">
+    <strong>Background:</strong> The environmental impact of inhaled anaesthetics is conventionally quantified using the 100-year global warming potential (GWP₁₀₀). We propose a novel modelling framework that derives instantaneous radiative forcing (RF, mW·m⁻²) directly from clinical input parameters for sevoflurane, desflurane, and isoflurane.<br><br>
+    <strong>Results:</strong> At standard clinical conditions, desflurane generates 5.2-fold more RF per MAC-hour than sevoflurane. The GWP₁₀₀-based ratio is 61.8-fold, suggesting the conventional metric overestimates the relative impact of desflurane by a factor of approximately 12.<br><br>
+    <strong>Conclusions:</strong> RF per MAC-hour provides a physically transparent alternative to GWP for comparing the climate footprint of inhaled anaesthetics.
   </div>
+  <a class="aop-btn" href="https://jrau.org/RF_LCA_Makale_final.pdf" target="_blank">📄 Download PDF</a>
+</div>
+</section>
 
-  <!-- EDITORIAL BOARD -->
-  <section id="editorial" class="editorial-card section-gap">
-    <h2>Editorial Board</h2>
-    <div class="sub-label">Editor-in-Chief</div>
-    <div class="editor-block">
-      <div class="avatar">RK</div>
-      <div>
-        <div class="editor-name">Rasim Onur Karaoğlu, MD</div>
-        <div class="editor-role">Editor-in-Chief</div>
-        <div class="editor-inst">Department of Anesthesiology and Reanimation<br>SBÜ Bağcılar Training and Research Hospital, İstanbul, Türkiye</div>
-      </div>
-    </div>
-    <div class="divider"></div>
-    <div class="sub-label" style="margin-top:16px">Associate Editors</div>
-    <div class="assoc-badges">
-      <span class="assoc-badge">Regional Anesthesia</span>
-      <span class="assoc-badge">Ultrasound-Guided Procedures</span>
-      <span class="assoc-badge">Pain Medicine</span>
-      <span class="assoc-badge">Artificial Intelligence & Innovation</span>
-    </div>
-    <div class="divider" style="margin-top:20px"></div>
-    <p style="font-size:13px;color:var(--muted);margin-top:14px">Editorial board appointments and international collaborations are currently in development.</p>
-  </section>
+<!-- CALL FOR PAPERS -->
+<section id="cfp" class="cfp-card">
+<h2>Call for Papers</h2>
+<div class="cfp-label">VOLUME 1 · ISSUE 1 · 2026</div>
+<p>JRAU invites original research, review articles, case reports, technical notes, and educational articles in the field of regional anesthesia, ultrasound-guided procedures, and perioperative pain medicine.</p>
 
-  <!-- SUBMIT + CONTACT -->
-  <div class="two-col section-gap">
-    <div id="submit" class="submit-card">
-      <h2>Submit Manuscript</h2>
-      <p>Manuscripts may currently be submitted by email while the online submission system is being developed.</p>
-      <p><strong>Email:</strong> <a href="mailto:editor@jrau.org">editor@jrau.org</a></p>
-      <p style="margin-top:10px;font-size:13px">Please include the manuscript file, title page, cover letter, ethics statement, conflict of interest statement, and author contribution statement.</p>
-    </div>
-    <div id="contact" class="contact-card">
-      <h2>Contact</h2>
-      <p><strong>Journal of Regional Anesthesia & Ultrasound</strong></p>
-      <p><strong>Website:</strong> <a href="https://jrau.org" target="_blank">jrau.org</a></p>
-      <p><strong>Editorial Office:</strong> <a href="mailto:editor@jrau.org">editor@jrau.org</a></p>
-    </div>
-  </div>
+<p><strong style="color:white">Topics of interest include:</strong></p>
+<ul>
+  <li>Peripheral nerve blocks and fascial plane blocks</li>
+  <li>Neuraxial anesthesia techniques</li>
+  <li>Ultrasound-guided interventions and sonoanatomy</li>
+  <li>Perioperative pain management</li>
+  <li>AI-assisted regional anesthesia</li>
+  <li>Environmental sustainability in anesthesia</li>
+  <li>Simulation and education in regional anesthesia</li>
+</ul>
+
+<div class="cfp-deadline">
+  <strong>Submission Deadline</strong>
+  <span>October 31, 2026 — for Vol. 1, Issue 1</span>
+</div>
+
+<p>Manuscripts should be submitted by email. All submissions undergo double-blind peer review.</p>
+<a class="cfp-btn" href="mailto:editor@jrau.org">Submit Your Manuscript</a>
+</section>
+
+<section id="scope">
+<h2>Aims & Scope</h2>
+<div class="grid">
+<div class="scope-card"><h3>Regional Anesthesia</h3><p>Peripheral nerve blocks, neuraxial techniques, fascial plane blocks, and perioperative analgesia.</p></div>
+<div class="scope-card"><h3>Ultrasound-Guided Procedures</h3><p>Sonoanatomy, procedural safety, needle visualization, and image-guided interventions.</p></div>
+<div class="scope-card"><h3>Innovation & Education</h3><p>AI-assisted blocks, simulation, teaching methods, cadaveric studies, and clinical workflows.</p></div>
+</div>
+</section>
+
+<br>
+
+<section id="articles" class="card">
+<h2>Article Types</h2>
+<span class="badge">Original Research</span>
+<span class="badge">Review Articles</span>
+<span class="badge">Technical Notes</span>
+<span class="badge">Case Reports</span>
+<span class="badge">Cadaveric Studies</span>
+<span class="badge">Sonoanatomy Images</span>
+<span class="badge">Educational Articles</span>
+<span class="badge">Letters to the Editor</span>
+</section>
+
+<section id="ethics" class="card">
+<h2>Publication Ethics</h2>
+<p>JRAU follows international standards for publication ethics, peer review, authorship transparency, conflict of interest disclosure, data integrity, and responsible use of artificial intelligence in scientific writing.</p>
+<p>All submitted manuscripts are expected to comply with ethical principles including appropriate ethics committee approval, informed consent when applicable, plagiarism avoidance, and transparent reporting.</p>
+</section>
+
+<section id="editorial" class="card">
+<h2>Editorial Board</h2>
+
+<h3>Editor-in-Chief</h3>
+<p>
+<strong>Rasim Onur Karaoğlu, MD</strong><br>
+Department of Anesthesiology and Reanimation<br>
+SBÜ Bağcılar Training and Research Hospital<br>
+İstanbul, Türkiye
+</p>
+
+<hr>
+
+<h3>Associate Editors</h3>
+<ul>
+<li>Regional Anesthesia</li>
+<li>Ultrasound-Guided Procedures</li>
+<li>Pain Medicine</li>
+<li>Artificial Intelligence & Innovation</li>
+</ul>
+
+<hr>
+
+<h3>Editorial Board</h3>
+<p>
+Editorial board appointments and international collaborations are currently in development.
+</p>
+</section>
+
+<section id="submit" class="card">
+<h2>Submit Manuscript</h2>
+<p>Manuscripts may currently be submitted by email while the online submission system is being developed.</p>
+<p><strong>Email:</strong> editor@jrau.org</p>
+<p>Please include the manuscript file, title page, cover letter, ethics statement, conflict of interest statement, and author contribution statement.</p>
+</section>
+
+<section id="contact" class="card">
+<h2>Contact</h2>
+<p><strong>Journal of Regional Anesthesia & Ultrasound</strong></p>
+<p><strong>Website:</strong> https://jrau.org</p>
+<p><strong>Editorial Office:</strong> editor@jrau.org</p>
+</section>
 
 </div>
 
 <footer>
-  <p>© 2026 Journal of Regional Anesthesia & Ultrasound (JRAU). All rights reserved.</p>
+<p>© 2026 Journal of Regional Anesthesia & Ultrasound (JRAU). All rights reserved.</p>
 </footer>
 
 </body>
