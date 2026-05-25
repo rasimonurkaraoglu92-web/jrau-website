@@ -1,200 +1,95 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JRAU | Journal of Regional Anesthesia & Ultrasound</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Georgia', serif; background: #f9f9f7; color: #1a1a1a; }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Segoe UI',Arial,sans-serif;background:#f4f5f7;color:#1a1a2e;font-size:14px}
 
-    header {
-      background: #1a2e4a;
-      color: white;
-      padding: 40px 24px 28px;
-      text-align: center;
-    }
-    header h1 { font-size: 2rem; letter-spacing: 2px; font-weight: 700; }
-    header p.subtitle { font-size: 0.95rem; margin-top: 6px; color: #a8c0d8; letter-spacing: 1px; }
-    header p.tagline { font-size: 0.78rem; margin-top: 10px; color: #7a9ab5; letter-spacing: 2px; text-transform: uppercase; }
+    /* HERO */
+    .hero{background:linear-gradient(135deg,#0d1b2e 0%,#1a3050 60%,#0d2840 100%);color:white;padding:36px 24px 28px;text-align:center}
+    .hero h1{font-size:2.2rem;font-weight:800;letter-spacing:3px;margin-bottom:4px}
+    .hero .full-name{font-size:0.85rem;color:#8db8d8;letter-spacing:1.5px;margin-bottom:12px}
+    .hero-badges{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+    .hero-badge{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#cfe4f4;padding:4px 12px;border-radius:20px;font-size:0.72rem;letter-spacing:1px;text-transform:uppercase}
+    .hero-badge.green{background:rgba(72,199,142,0.15);border-color:rgba(72,199,142,0.3);color:#48c78e}
 
-    nav {
-      background: #142338;
-      padding: 0 24px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0;
-    }
-    nav a {
-      color: #a8c0d8;
-      text-decoration: none;
-      padding: 12px 14px;
-      font-size: 0.8rem;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      transition: color 0.2s, background 0.2s;
-    }
-    nav a:hover { color: white; background: #1e3a5f; }
+    /* NAV */
+    nav{background:#0d1b2e;display:flex;flex-wrap:wrap;justify-content:center;gap:0;border-bottom:1px solid #1e3a5f}
+    nav a{color:#8db8d8;text-decoration:none;padding:10px 13px;font-size:0.75rem;letter-spacing:0.5px;text-transform:uppercase;transition:color 0.2s,background 0.2s}
+    nav a:hover{color:white;background:#1e3a5f}
 
-    .container { max-width: 860px; margin: 0 auto; padding: 32px 24px; }
+    /* LAYOUT */
+    .container{max-width:900px;margin:0 auto;padding:24px 16px}
+    .two-col{display:grid;grid-template-columns:1fr 340px;gap:20px;align-items:start}
+    @media(max-width:720px){.two-col{grid-template-columns:1fr}}
 
-    .card {
-      background: white;
-      border: 1px solid #e0e0dc;
-      border-radius: 4px;
-      padding: 32px;
-      margin-bottom: 28px;
-    }
-    .card h2 {
-      font-size: 1.1rem;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: #1a2e4a;
-      border-bottom: 2px solid #1a2e4a;
-      padding-bottom: 10px;
-      margin-bottom: 20px;
-    }
+    /* CARDS */
+    .card{background:white;border:1px solid #e2e6ea;border-radius:6px;padding:22px;margin-bottom:20px}
+    .section-label{font-size:0.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#5a7fa8;margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid #e8f0f8}
 
-    /* Issue header */
-    .issue-header {
-      background: #1a2e4a;
-      color: white;
-      padding: 10px 16px;
-      border-radius: 3px;
-      margin-bottom: 20px;
-      font-size: 0.85rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
+    /* ISSUE BOX */
+    .issue-box{background:#f0f5fb;border:1px solid #c8dcf0;border-radius:5px;padding:10px 14px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between}
+    .issue-box .vol{font-weight:700;color:#1a3050;font-size:0.85rem}
+    .issue-box .year{font-size:0.75rem;color:#5a7fa8}
 
-    /* Article entry */
-    .article-entry {
-      border-left: 3px solid #1a2e4a;
-      padding: 16px 20px;
-      margin-bottom: 16px;
-      background: #f5f7fa;
-      border-radius: 0 4px 4px 0;
-    }
-    .article-type {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #7a9ab5;
-      margin-bottom: 6px;
-      font-family: 'Arial', sans-serif;
-    }
-    .article-title {
-      font-size: 1rem;
-      font-weight: bold;
-      color: #1a2e4a;
-      line-height: 1.4;
-      margin-bottom: 8px;
-    }
-    .article-authors {
-      font-size: 0.85rem;
-      color: #444;
-      margin-bottom: 4px;
-      font-family: 'Arial', sans-serif;
-    }
-    .article-affil {
-      font-size: 0.78rem;
-      color: #888;
-      font-style: italic;
-      margin-bottom: 10px;
-      font-family: 'Arial', sans-serif;
-    }
-    .article-abstract {
-      font-size: 0.82rem;
-      color: #555;
-      line-height: 1.6;
-      margin-bottom: 12px;
-      font-family: 'Arial', sans-serif;
-    }
-    .article-links { display: flex; gap: 10px; flex-wrap: wrap; }
-    .btn {
-      display: inline-block;
-      padding: 6px 14px;
-      border-radius: 3px;
-      font-size: 0.78rem;
-      text-decoration: none;
-      font-family: 'Arial', sans-serif;
-      letter-spacing: 0.3px;
-    }
-    .btn-pdf { background: #1a2e4a; color: white; }
-    .btn-doi { background: white; color: #1a2e4a; border: 1px solid #1a2e4a; }
-    .btn:hover { opacity: 0.85; }
+    /* ARTICLE ROWS */
+    .article-row{padding:12px 0;border-bottom:1px solid #eef1f5}
+    .article-row:last-child{border-bottom:none;padding-bottom:0}
+    .art-type{font-size:0.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;background:#1a3050;display:inline-block;padding:2px 7px;border-radius:3px;margin-bottom:6px}
+    .art-type.case{background:#2d6a9f}
+    .art-type.review{background:#1e6b52}
+    .art-title{font-size:0.88rem;font-weight:600;color:#0d1b2e;line-height:1.4;margin-bottom:4px}
+    .art-authors{font-size:0.78rem;color:#5a7fa8;margin-bottom:6px}
+    .art-links{display:flex;gap:8px;flex-wrap:wrap}
+    .btn-sm{font-size:0.72rem;padding:3px 10px;border-radius:3px;text-decoration:none;display:inline-flex;align-items:center;gap:4px}
+    .btn-pdf{background:#1a3050;color:white}
+    .btn-doi{background:white;color:#1a3050;border:1px solid #1a3050}
+    .btn-sm:hover{opacity:0.8}
 
-    /* Other sections */
-    .card p { font-size: 0.92rem; line-height: 1.7; margin-bottom: 12px; color: #333; }
-    .card ul { padding-left: 20px; margin-bottom: 12px; }
-    .card ul li { font-size: 0.9rem; line-height: 1.8; color: #333; }
-    .card h3 { font-size: 0.95rem; color: #1a2e4a; margin: 16px 0 6px; font-family: 'Arial', sans-serif; }
+    /* SIDEBAR */
+    .card p{font-size:0.84rem;line-height:1.7;color:#444;margin-bottom:10px}
+    .card p:last-child{margin-bottom:0}
+    .scope-list{list-style:none;padding:0}
+    .scope-list li{padding:6px 0;border-bottom:1px solid #f0f0f0;font-size:0.82rem;color:#333;display:flex;align-items:center;gap:8px}
+    .scope-list li:last-child{border-bottom:none}
+    .scope-list li::before{content:'›';color:#5a7fa8;font-weight:bold}
+    .badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+    .badge{background:#eaf3fc;color:#1a6099;border:1px solid #c0daf2;padding:3px 9px;border-radius:12px;font-size:0.72rem}
 
-    .scope-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 14px;
-      margin-top: 10px;
-    }
-    .scope-item {
-      background: #f5f7fa;
-      border-left: 3px solid #1a2e4a;
-      padding: 12px 14px;
-      border-radius: 0 4px 4px 0;
-    }
-    .scope-item strong { display: block; font-size: 0.85rem; color: #1a2e4a; margin-bottom: 4px; }
-    .scope-item span { font-size: 0.78rem; color: #666; font-family: 'Arial', sans-serif; }
+    /* EDITOR */
+    .editor-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+    .avatar{width:44px;height:44px;border-radius:50%;background:#1a3050;color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0}
+    .editor-name{font-weight:600;font-size:0.85rem;color:#0d1b2e}
+    .editor-role{font-size:0.72rem;color:#5a7fa8;letter-spacing:0.5px}
+    .editor-inst{font-size:0.75rem;color:#777;margin-top:2px}
+    .divider{border:none;border-top:1px solid #eef1f5;margin:12px 0}
 
-    .editor-card {
-      display: flex;
-      align-items: flex-start;
-      gap: 20px;
-      margin-bottom: 16px;
-    }
-    .editor-card img {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid #1a2e4a;
-      flex-shrink: 0;
-    }
-    .editor-info strong { font-size: 0.95rem; color: #1a2e4a; }
-    .editor-info p { font-size: 0.82rem; color: #555; margin: 2px 0; font-family: 'Arial', sans-serif; }
-    .editor-role { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; color: #7a9ab5; font-family: 'Arial', sans-serif; margin-bottom: 4px; }
+    /* SUBMIT */
+    .submit-box{background:#f0f5fb;border-left:3px solid #1a3050;border-radius:3px;padding:10px 14px;margin-top:10px}
+    .submit-box p{margin:3px 0;font-size:0.82rem;color:#1a3050}
+    a.submit-link{display:inline-block;margin-top:10px;background:#1a3050;color:white;padding:8px 18px;border-radius:4px;text-decoration:none;font-size:0.8rem}
+    a.submit-link:hover{background:#0d1b2e}
 
-    .submit-btn {
-      display: inline-block;
-      background: #1a2e4a;
-      color: white;
-      padding: 12px 28px;
-      border-radius: 3px;
-      text-decoration: none;
-      font-size: 0.9rem;
-      margin-top: 8px;
-      font-family: 'Arial', sans-serif;
-    }
-    .submit-btn:hover { background: #142338; }
-
-    footer {
-      background: #1a2e4a;
-      color: #7a9ab5;
-      text-align: center;
-      padding: 24px;
-      font-size: 0.78rem;
-      font-family: 'Arial', sans-serif;
-      letter-spacing: 0.5px;
-    }
+    footer{background:#0d1b2e;color:#5a7fa8;text-align:center;padding:18px;font-size:0.75rem;letter-spacing:0.5px}
   </style>
 </head>
 <body>
 
-<header>
+<div class="hero">
   <h1>JRAU</h1>
-  <p class="subtitle">Journal of Regional Anesthesia &amp; Ultrasound</p>
-  <p class="tagline">International · Open Access · Peer Reviewed · 2026</p>
-</header>
+  <div class="full-name">Journal of Regional Anesthesia &amp; Ultrasound</div>
+  <div class="hero-badges">
+    <span class="hero-badge">International</span>
+    <span class="hero-badge green">Open Access</span>
+    <span class="hero-badge">Peer Reviewed</span>
+    <span class="hero-badge">Est. 2026</span>
+  </div>
+</div>
 
 <nav>
   <a href="#about">About</a>
@@ -208,116 +103,160 @@
 </nav>
 
 <div class="container">
+  <div class="two-col">
 
-  <section id="about" class="card">
-    <h2>About the Journal</h2>
-    <p><strong>Journal of Regional Anesthesia &amp; Ultrasound (JRAU)</strong> is an international, peer-reviewed, open-access journal dedicated to regional anesthesia, ultrasound-guided procedures, perioperative pain medicine, and innovation in anesthetic practice.</p>
-    <p>JRAU provides a focused platform for clinicians, researchers, educators, and trainees working in ultrasound-guided regional anesthesia and related perioperative fields.</p>
-  </section>
+    <!-- MAIN COLUMN -->
+    <div>
 
-  <section id="current-issue" class="card">
-    <h2>Current Issue</h2>
-    <div class="issue-header">Volume 1 · Issue 1 · 2026</div>
-
-    <!-- Article 1 -->
-    <div class="article-entry">
-      <div class="article-type">Original Research</div>
-      <div class="article-title">Performance of Large Language Models in ASA Physical Status Classification Using Expert-Validated Synthetic Preoperative Scenarios: A Comparative Study of GPT-4o and Gemini 2.0</div>
-      <div class="article-authors">Rasim Onur Karaoğlu, MD · Açelya Toprak Karaoğlu · Sezen Kumaş Solak, MD · Serdar Demirgan, MD PhD</div>
-      <div class="article-affil">Department of Anesthesiology and Reanimation, Bağcılar Training and Research Hospital, Istanbul, Turkey</div>
-      <div class="article-abstract">
-        <strong>Background:</strong> The ASA Physical Status classification is widely used for preoperative risk stratification but suffers from substantial inter-rater variability. This study evaluates GPT-4o and Gemini 2.0 Flash on 487 expert-validated synthetic preoperative scenarios.<br><br>
-        <strong>Conclusions:</strong> Both GPT-4o (κw=0.936) and Gemini 2.0 Flash (κw=0.933) achieved almost perfect agreement against expert consensus, matching the expert panel's own inter-rater reliability. Prospective clinical validation is the logical next step.
+      <div id="about" class="card">
+        <div class="section-label">About the Journal</div>
+        <p><strong>Journal of Regional Anesthesia &amp; Ultrasound (JRAU)</strong> is an international, peer-reviewed, open-access journal dedicated to regional anesthesia, ultrasound-guided procedures, perioperative pain medicine, and innovation in anesthetic practice.</p>
+        <p>JRAU provides a focused platform for clinicians, researchers, educators, and trainees working in ultrasound-guided regional anesthesia and related perioperative fields.</p>
       </div>
-      <div class="article-links">
-        <a href="https://jrau.org/manuscript.pdf" class="btn btn-pdf">📄 PDF</a>
-        <a href="https://doi.org/10.5281/zenodo.20353986" class="btn btn-doi">🔗 DOI</a>
+
+      <div id="current-issue" class="card">
+        <div class="section-label">Current Issue</div>
+        <div class="issue-box">
+          <span class="vol">Volume 1 · Issue 1</span>
+          <span class="year">2026</span>
+        </div>
+
+        <!-- Article 1 -->
+        <div class="article-row">
+          <div><span class="art-type">Original Research</span></div>
+          <div class="art-title">Performance of Large Language Models in ASA Physical Status Classification Using Expert-Validated Synthetic Preoperative Scenarios: A Comparative Study of GPT-4o and Gemini 2.0</div>
+          <div class="art-authors">Rasim Onur Karaoğlu · Açelya Toprak Karaoğlu · Sezen Kumaş Solak · Serdar Demirgan</div>
+          <div class="art-links">
+            <a href="https://jrau.org/manuscript.pdf" class="btn-sm btn-pdf">📄 PDF</a>
+            <a href="https://doi.org/10.5281/zenodo.20353986" class="btn-sm btn-doi">🔗 DOI</a>
+          </div>
+        </div>
+
+        <!-- Article 2 -->
+        <div class="article-row">
+          <div><span class="art-type case">Case Report</span></div>
+          <div class="art-title">Anesthetic Management in a Patient with Huntington's Chorea: A Case Report</div>
+          <div class="art-authors">Sezen Kumaş Solak</div>
+          <div class="art-links">
+            <a href="https://jrau.org/hc.pdf" class="btn-sm btn-pdf">📄 PDF</a>
+          </div>
+        </div>
+
+        <!-- Article 3 -->
+        <div class="article-row">
+          <div><span class="art-type review">Narrative Review</span></div>
+          <div class="art-title">Pulmonary Embolism in COVID-19: A Case Report and Review of the Literature</div>
+          <div class="art-authors">Hakan Küçükkepeci</div>
+          <div class="art-links">
+            <a href="https://jrau.org/covid_pe.pdf" class="btn-sm btn-pdf">📄 PDF</a>
+          </div>
+        </div>
+
+        <!-- Article 4 -->
+        <div class="article-row">
+          <div><span class="art-type review">Narrative Review</span></div>
+          <div class="art-title">Postpartum Thrombotic Thrombocytopenic Purpura Presenting with Status Epilepticus: A Case-Based Narrative Review</div>
+          <div class="art-authors">Açelya Toprak Karaoğlu</div>
+          <div class="art-links">
+            <a href="https://jrau.org/ttp.pdf" class="btn-sm btn-pdf">📄 PDF</a>
+          </div>
+        </div>
+
+        <!-- Article 5 -->
+        <div class="article-row">
+          <div><span class="art-type review">Narrative Review</span></div>
+          <div class="art-title">Anesthetic Management of Intracranial Space-Occupying Lesions: A Comprehensive Narrative Review</div>
+          <div class="art-authors">Serdar Demirgan</div>
+          <div class="art-links">
+            <a href="https://jrau.org/neuroanesthesia.pdf" class="btn-sm btn-pdf">📄 PDF</a>
+          </div>
+        </div>
+
+      </div><!-- /current-issue -->
+
+      <div id="ethics" class="card">
+        <div class="section-label">Publication Ethics</div>
+        <p>JRAU follows international standards for publication ethics, peer review, authorship transparency, conflict of interest disclosure, data integrity, and responsible use of artificial intelligence in scientific writing.</p>
+        <p>All submitted manuscripts are expected to comply with ethical principles including appropriate ethics committee approval, informed consent where applicable, plagiarism avoidance, and transparent reporting.</p>
       </div>
-    </div>
 
-    <!-- Article 2 -->
-    <div class="article-entry">
-      <div class="article-type">Case Report</div>
-      <div class="article-title">Anesthetic Management in a Patient with Huntington's Chorea: A Case Report</div>
-      <div class="article-authors">Sezen Kumaş Solak, MD</div>
-      <div class="article-affil">Department of Anesthesiology and Reanimation, Bağcılar Training and Research Hospital, Istanbul, Turkey</div>
-      <div class="article-abstract">
-        <strong>Background:</strong> Huntington's chorea (HC) is a rare autosomal dominant neurodegenerative disorder characterized by progressive choreiform movements, cognitive decline, and psychiatric disturbances. The perioperative management of patients with HC poses significant challenges, particularly due to pharyngeal muscle involvement, increased aspiration risk, and altered responses to anesthetic agents.<br><br>
-        <strong>Conclusions:</strong> Awake fiberoptic intubation combined with propofol-remifentanil TIVA and low-dose rocuronium under BIS and TOF monitoring provides a safe and effective anesthetic approach in patients with Huntington's chorea.
+    </div><!-- /main -->
+
+    <!-- SIDEBAR -->
+    <div>
+
+      <div id="scope" class="card">
+        <div class="section-label">Aims &amp; Scope</div>
+        <ul class="scope-list">
+          <li>Regional Anesthesia</li>
+          <li>Ultrasound-Guided Procedures</li>
+          <li>Perioperative Pain Medicine</li>
+          <li>Education &amp; Simulation</li>
+          <li>AI &amp; Innovation in Anesthesia</li>
+          <li>Clinical Research &amp; Outcomes</li>
+        </ul>
       </div>
-      <div class="article-links">
-        <a href="https://jrau.org/hc.pdf" class="btn btn-pdf">📄 PDF</a>
+
+      <div id="articles" class="card">
+        <div class="section-label">Article Types</div>
+        <div class="badges">
+          <span class="badge">Original Research</span>
+          <span class="badge">Review Articles</span>
+          <span class="badge">Technical Notes</span>
+          <span class="badge">Case Reports</span>
+          <span class="badge">Cadaveric Studies</span>
+          <span class="badge">Sonoanatomy Images</span>
+          <span class="badge">Educational Articles</span>
+          <span class="badge">Letters to the Editor</span>
+        </div>
       </div>
-    </div>
 
-  </section>
-
-  <section id="scope" class="card">
-    <h2>Aims &amp; Scope</h2>
-    <div class="scope-grid">
-      <div class="scope-item"><strong>Regional Anesthesia</strong><span>Peripheral nerve blocks, neuraxial techniques, fascial plane blocks, perioperative analgesia</span></div>
-      <div class="scope-item"><strong>Ultrasound-Guided</strong><span>Sonoanatomy, procedural safety, needle visualization, image-guided interventions</span></div>
-      <div class="scope-item"><strong>Pain Medicine</strong><span>Acute and chronic pain, multimodal analgesia, perioperative pain management</span></div>
-      <div class="scope-item"><strong>Education &amp; Simulation</strong><span>Training methods, simulation-based learning, cadaveric studies, competency assessment</span></div>
-      <div class="scope-item"><strong>AI &amp; Innovation</strong><span>AI-assisted blocks, machine learning in anesthesia, novel techniques and devices</span></div>
-      <div class="scope-item"><strong>Clinical Research</strong><span>Randomized trials, outcomes research, systematic reviews, meta-analyses</span></div>
-    </div>
-  </section>
-
-  <section id="articles" class="card">
-    <h2>Article Types</h2>
-    <ul>
-      <li>Original Research</li>
-      <li>Review Articles</li>
-      <li>Technical Notes</li>
-      <li>Case Reports</li>
-      <li>Cadaveric Studies</li>
-      <li>Sonoanatomy Images</li>
-      <li>Educational Articles</li>
-      <li>Letters to the Editor</li>
-    </ul>
-  </section>
-
-  <section id="editorial" class="card">
-    <h2>Editorial Board</h2>
-    <div class="editor-card">
-      <img src="https://jrau.org/photo.png" alt="Rasim Onur Karaoğlu, MD">
-      <div class="editor-info">
-        <div class="editor-role">Editor-in-Chief</div>
-        <strong>Rasim Onur Karaoğlu, MD</strong>
-        <p>Department of Anesthesiology and Reanimation</p>
-        <p>SBÜ Bağcılar Training and Research Hospital, İstanbul, Türkiye</p>
-        <p style="margin-top:6px; font-size:0.78rem; color:#7a9ab5;">Regional Anesthesia · Ultrasound-Guided Procedures · Pain Medicine · AI &amp; Innovation</p>
+      <div id="editorial" class="card">
+        <div class="section-label">Editorial Board</div>
+        <div class="section-label" style="font-size:0.62rem;border:none;padding:0;margin-bottom:8px">EDITOR-IN-CHIEF</div>
+        <div class="editor-row">
+          <div class="avatar">RK</div>
+          <div>
+            <div class="editor-name">Rasim Onur Karaoğlu, MD</div>
+            <div class="editor-role">Editor-in-Chief</div>
+            <div class="editor-inst">SBÜ Bağcılar Training &amp; Research Hospital, İstanbul</div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="section-label" style="font-size:0.62rem;border:none;padding:0;margin-bottom:8px">ASSOCIATE EDITORS</div>
+        <div class="badges" style="margin-top:0">
+          <span class="badge">Regional Anesthesia</span>
+          <span class="badge">Ultrasound</span>
+          <span class="badge">Pain Medicine</span>
+          <span class="badge">AI &amp; Innovation</span>
+        </div>
+        <div class="divider"></div>
+        <p style="font-size:0.75rem;color:#888">Editorial board appointments and international collaborations are currently in development.</p>
       </div>
-    </div>
-    <p style="font-size:0.82rem; color:#888; font-family:Arial,sans-serif;">Editorial board appointments and international collaborations are currently in development.</p>
-  </section>
 
-  <section id="ethics" class="card">
-    <h2>Publication Ethics</h2>
-    <p>JRAU follows international standards for publication ethics, peer review, authorship transparency, conflict of interest disclosure, data integrity, and responsible use of artificial intelligence in scientific writing.</p>
-    <p>All submitted manuscripts are expected to comply with ethical principles including appropriate ethics committee approval, informed consent when applicable, plagiarism avoidance, and transparent reporting.</p>
-  </section>
+      <div id="submit" class="card">
+        <div class="section-label">Submit Manuscript</div>
+        <p>Include manuscript file, title page, cover letter, ethics statement, COI statement, and author contributions.</p>
+        <div class="submit-box">
+          <p><strong>editor@jrau.org</strong></p>
+          <p>jrau.org</p>
+        </div>
+        <a href="mailto:editor@jrau.org" class="submit-link">Submit Your Manuscript →</a>
+      </div>
 
-  <section id="submit" class="card">
-    <h2>Submit Manuscript</h2>
-    <p>Manuscripts may currently be submitted by email while the online submission system is being developed.</p>
-    <p><strong>Email:</strong> editor@jrau.org</p>
-    <p>Please include the manuscript file, title page, cover letter, ethics statement, conflict of interest statement, and author contribution statement.</p>
-    <a href="mailto:editor@jrau.org" class="submit-btn">Submit Your Manuscript →</a>
-  </section>
+      <div id="contact" class="card">
+        <div class="section-label">Contact</div>
+        <p><strong>Journal of Regional Anesthesia &amp; Ultrasound</strong><br>
+        editor@jrau.org<br>
+        jrau.org</p>
+      </div>
 
-  <section id="contact" class="card">
-    <h2>Contact</h2>
-    <p><strong>Journal of Regional Anesthesia &amp; Ultrasound</strong></p>
-    <p><strong>Website:</strong> https://jrau.org</p>
-    <p><strong>Editorial Office:</strong> editor@jrau.org</p>
-  </section>
-
+    </div><!-- /sidebar -->
+  </div>
 </div>
 
 <footer>
-  <p>© 2026 Journal of Regional Anesthesia &amp; Ultrasound (JRAU). All rights reserved.</p>
+  <p>© 2026 Journal of Regional Anesthesia &amp; Ultrasound (JRAU) · editor@jrau.org · jrau.org</p>
 </footer>
 
 </body>
