@@ -9,7 +9,6 @@
     *{margin:0;padding:0;box-sizing:border-box}
     body{font-family:'Segoe UI',Arial,sans-serif;background:#f4f5f7;color:#1a1a2e;font-size:14px}
 
-    /* HERO */
     .hero{background:linear-gradient(135deg,#0d1b2e 0%,#1a3050 60%,#0d2840 100%);color:white;padding:36px 24px 28px;text-align:center}
     .hero h1{font-size:2.2rem;font-weight:800;letter-spacing:3px;margin-bottom:4px}
     .hero .full-name{font-size:0.85rem;color:#8db8d8;letter-spacing:1.5px;margin-bottom:12px}
@@ -17,26 +16,21 @@
     .hero-badge{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#cfe4f4;padding:4px 12px;border-radius:20px;font-size:0.72rem;letter-spacing:1px;text-transform:uppercase}
     .hero-badge.green{background:rgba(72,199,142,0.15);border-color:rgba(72,199,142,0.3);color:#48c78e}
 
-    /* NAV */
     nav{background:#0d1b2e;display:flex;flex-wrap:wrap;justify-content:center;gap:0;border-bottom:1px solid #1e3a5f}
     nav a{color:#8db8d8;text-decoration:none;padding:10px 13px;font-size:0.75rem;letter-spacing:0.5px;text-transform:uppercase;transition:color 0.2s,background 0.2s}
     nav a:hover{color:white;background:#1e3a5f}
 
-    /* LAYOUT */
     .container{max-width:900px;margin:0 auto;padding:24px 16px}
     .two-col{display:grid;grid-template-columns:1fr 340px;gap:20px;align-items:start}
     @media(max-width:720px){.two-col{grid-template-columns:1fr}}
 
-    /* CARDS */
     .card{background:white;border:1px solid #e2e6ea;border-radius:6px;padding:22px;margin-bottom:20px}
     .section-label{font-size:0.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#5a7fa8;margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid #e8f0f8}
 
-    /* ISSUE BOX */
     .issue-box{background:#f0f5fb;border:1px solid #c8dcf0;border-radius:5px;padding:10px 14px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between}
     .issue-box .vol{font-weight:700;color:#1a3050;font-size:0.85rem}
     .issue-box .year{font-size:0.75rem;color:#5a7fa8}
 
-    /* ARTICLE ROWS */
     .article-row{padding:12px 0;border-bottom:1px solid #eef1f5}
     .article-row:last-child{border-bottom:none;padding-bottom:0}
     .art-type{font-size:0.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;background:#1a3050;display:inline-block;padding:2px 7px;border-radius:3px;margin-bottom:6px}
@@ -50,7 +44,6 @@
     .btn-doi{background:white;color:#1a3050;border:1px solid #1a3050}
     .btn-sm:hover{opacity:0.8}
 
-    /* SIDEBAR */
     .card p{font-size:0.84rem;line-height:1.7;color:#444;margin-bottom:10px}
     .card p:last-child{margin-bottom:0}
     .scope-list{list-style:none;padding:0}
@@ -60,7 +53,6 @@
     .badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
     .badge{background:#eaf3fc;color:#1a6099;border:1px solid #c0daf2;padding:3px 9px;border-radius:12px;font-size:0.72rem}
 
-    /* EDITOR */
     .editor-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
     .avatar{width:44px;height:44px;border-radius:50%;background:#1a3050;color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0}
     .editor-name{font-weight:600;font-size:0.85rem;color:#0d1b2e}
@@ -68,11 +60,22 @@
     .editor-inst{font-size:0.75rem;color:#777;margin-top:2px}
     .divider{border:none;border-top:1px solid #eef1f5;margin:12px 0}
 
-    /* SUBMIT */
     .submit-box{background:#f0f5fb;border-left:3px solid #1a3050;border-radius:3px;padding:10px 14px;margin-top:10px}
     .submit-box p{margin:3px 0;font-size:0.82rem;color:#1a3050}
     a.submit-link{display:inline-block;margin-top:10px;background:#1a3050;color:white;padding:8px 18px;border-radius:4px;text-decoration:none;font-size:0.8rem}
     a.submit-link:hover{background:#0d1b2e}
+
+    .info-box{background:#f0f5fb;border:1px solid #c8dcf0;border-radius:5px;padding:10px 14px;margin-bottom:12px}
+    .info-box p{margin:0;font-size:0.82rem;color:#1a3050}
+    .info-box strong{color:#0d1b2e}
+
+    .apc-box{background:#edfaf4;border:1px solid #a8dfc4;border-radius:5px;padding:10px 14px;margin-bottom:12px}
+    .apc-box p{margin:0;font-size:0.82rem;color:#1e6b52}
+
+    .steps{list-style:none;padding:0;counter-reset:step}
+    .steps li{counter-increment:step;padding:8px 0 8px 32px;border-bottom:1px solid #f0f0f0;font-size:0.82rem;color:#333;position:relative}
+    .steps li:last-child{border-bottom:none}
+    .steps li::before{content:counter(step);position:absolute;left:0;top:8px;width:20px;height:20px;background:#1a3050;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700}
 
     footer{background:#0d1b2e;color:#5a7fa8;text-align:center;padding:18px;font-size:0.75rem;letter-spacing:0.5px}
   </style>
@@ -98,6 +101,7 @@
   <a href="#articles">Article Types</a>
   <a href="#editorial">Editorial Board</a>
   <a href="#ethics">Ethics</a>
+  <a href="#guidelines">Author Guidelines</a>
   <a href="#submit">Submit</a>
   <a href="#contact">Contact</a>
 </nav>
@@ -122,7 +126,6 @@
           <span class="year">2026</span>
         </div>
 
-        <!-- Article 1 -->
         <div class="article-row">
           <div><span class="art-type">Original Research</span></div>
           <div class="art-title">Performance of Large Language Models in ASA Physical Status Classification Using Expert-Validated Synthetic Preoperative Scenarios: A Comparative Study of GPT-4o and Gemini 2.0</div>
@@ -133,7 +136,6 @@
           </div>
         </div>
 
-        <!-- Article 2 -->
         <div class="article-row">
           <div><span class="art-type case">Case Report</span></div>
           <div class="art-title">Anesthetic Management in a Patient with Huntington's Chorea: A Case Report</div>
@@ -143,7 +145,6 @@
           </div>
         </div>
 
-        <!-- Article 3 -->
         <div class="article-row">
           <div><span class="art-type review">Narrative Review</span></div>
           <div class="art-title">Pulmonary Embolism in COVID-19: A Case Report and Review of the Literature</div>
@@ -153,7 +154,6 @@
           </div>
         </div>
 
-        <!-- Article 4 -->
         <div class="article-row">
           <div><span class="art-type review">Narrative Review</span></div>
           <div class="art-title">Postpartum Thrombotic Thrombocytopenic Purpura Presenting with Status Epilepticus: A Case-Based Narrative Review</div>
@@ -163,7 +163,6 @@
           </div>
         </div>
 
-        <!-- Article 5 -->
         <div class="article-row">
           <div><span class="art-type review">Narrative Review</span></div>
           <div class="art-title">Anesthetic Management of Intracranial Space-Occupying Lesions: A Comprehensive Narrative Review</div>
@@ -173,7 +172,47 @@
           </div>
         </div>
 
-      </div><!-- /current-issue -->
+      </div>
+
+      <div id="guidelines" class="card">
+        <div class="section-label">Author Guidelines</div>
+
+        <div class="info-box">
+          <p><strong>Language:</strong> All manuscripts must be submitted in English.</p>
+        </div>
+
+        <p><strong>Manuscript Preparation</strong></p>
+        <p>Manuscripts should be prepared in Microsoft Word (.docx) format, using 12-point Times New Roman font, double line spacing, and 2.5 cm margins on all sides. Pages and lines should be numbered throughout.</p>
+
+        <p><strong>Required Files at Submission</strong></p>
+        <ul class="steps">
+          <li>Main manuscript file (anonymized, no author information)</li>
+          <li>Title page (title, all authors, affiliations, corresponding author contact)</li>
+          <li>Cover letter addressed to the Editor-in-Chief</li>
+          <li>Ethics committee approval statement or exemption</li>
+          <li>Conflict of interest (COI) declaration for all authors</li>
+          <li>Author contribution statement (CRediT taxonomy recommended)</li>
+          <li>Informed consent statement (for case reports and studies involving patients)</li>
+        </ul>
+
+        <p style="margin-top:14px"><strong>Word Limits</strong></p>
+        <div class="info-box" style="margin-top:6px">
+          <p>Original Research: up to 4,000 words · References: up to 40<br>
+          Review Articles: up to 5,000 words · References: up to 60<br>
+          Case Reports: up to 2,000 words · References: up to 20<br>
+          Technical Notes: up to 1,500 words · References: up to 15<br>
+          Letters to the Editor: up to 600 words · References: up to 5</p>
+        </div>
+
+        <p><strong>References</strong></p>
+        <p>References should follow Vancouver style and be numbered consecutively in the order they appear in the text. Journal abbreviations should follow Index Medicus/MEDLINE standards.</p>
+
+        <p><strong>Artificial Intelligence Policy</strong></p>
+        <p>Authors must disclose any use of AI tools in manuscript preparation. AI tools may not be listed as authors. Responsibility for accuracy and integrity of AI-assisted content lies solely with the authors.</p>
+
+        <p><strong>Peer Review</strong></p>
+        <p>JRAU employs a double-blind peer review process. All submitted manuscripts are initially screened by the editorial team for scope and quality, then assigned to at least two independent expert reviewers. Authors and reviewers remain anonymous to each other throughout the process. The editorial decision is communicated to the corresponding author upon completion of review.</p>
+      </div>
 
       <div id="ethics" class="card">
         <div class="section-label">Publication Ethics</div>
@@ -212,6 +251,14 @@
         </div>
       </div>
 
+      <div class="card">
+        <div class="section-label">Open Access &amp; APC Policy</div>
+        <div class="apc-box">
+          <p><strong>✓ No Article Processing Charge (APC)</strong></p>
+        </div>
+        <p>JRAU is a fully open-access journal. All published articles are freely available to readers worldwide under the <strong>Creative Commons Attribution 4.0 International (CC BY 4.0)</strong> license. Authors are not required to pay any submission, processing, or publication fees.</p>
+      </div>
+
       <div id="editorial" class="card">
         <div class="section-label">Editorial Board</div>
         <div class="section-label" style="font-size:0.62rem;border:none;padding:0;margin-bottom:8px">EDITOR-IN-CHIEF</div>
@@ -220,7 +267,7 @@
           <div>
             <div class="editor-name">Rasim Onur Karaoğlu, MD</div>
             <div class="editor-role">Editor-in-Chief</div>
-            <div class="editor-inst">SBÜ Bağcılar Training &amp; Research Hospital, İstanbul</div>
+            <div class="editor-inst">SBÜ Bağcılar Training &amp; Research Hospital, İstanbul, Turkey</div>
           </div>
         </div>
         <div class="divider"></div>
